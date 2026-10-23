@@ -1,180 +1,219 @@
 # Anime Rift
 
-Anime Rift is an open-source Android anime application built with Kotlin, Jetpack Compose, Material 3, Room, Retrofit, OkHttp, Coroutines, Flow, and Media3 ExoPlayer. The project aims to provide a polished anime streaming and offline library experience with a clean MVVM + repository architecture, mock-ready source architecture, and a maintainable foundation for future real metadata and media integrations.
+<p align="center">
+  <img src="https://img.shields.io/badge/Kotlin-1.9.24-7F52FF?logo=kotlin&logoColor=white" alt="Kotlin" />
+  <img src="https://img.shields.io/badge/Compose-UI-3D7AF0?logo=jetpackcompose&logoColor=white" alt="Jetpack Compose" />
+  <img src="https://img.shields.io/badge/Android-Media3-34A853?logo=android&logoColor=white" alt="Media3" />
+  <img src="https://img.shields.io/badge/Language-Arabic%20%2B%20English-FF8A00" alt="Arabic + English" />
+  <img src="https://img.shields.io/badge/Status-MVP%20Foundation-orange" alt="Status" />
+</p>
 
-This repository currently contains a functional MVP foundation for the app experience, including theme, navigation, mock anime data, detailed screens, favorites, local library views, and player integration using ExoPlayer.
+<p align="center">
+  <strong>Open-source Android anime streaming and offline library app</strong>
+</p>
 
-## Features
+Anime Rift is a modern Android anime app built with Kotlin, Jetpack Compose, Material 3, Room, Retrofit, OkHttp, Coroutines, Flow, and Media3 ExoPlayer. It is designed as a clean, maintainable foundation for anime discovery, playback, favorites, local library management, and future real metadata/source integrations.
 
-### Implemented in the MVP
-- Dark cinematic UI with purple/blue accents
-- Home screen with featured anime and recently updated titles
-- Anime detail screen with poster, description, genres, rating, and episode list
-- Favorite and library flows
-- Continue Watching style views
-- Settings screen for common playback and UI options
+This repository currently contains a working MVP foundation for the app experience, with a cinematic dark UI, mock anime data, detail screens, favorites, library flow, settings, and ExoPlayer-based playback integration.
+
+## Why Anime Rift?
+
+- Clean, modern dark anime UI with purple and blue cinematic styling
+- Flexible architecture for multiple content sources
+- Room-powered local library and user data persistence
+- Modular structure for future source integrations and downloads
+- Built with performance in mind for a wide range of Android devices
+- Designed with Arabic RTL and English LTR compatibility in mind
+
+## Screens and Features
+
+### Included in the current MVP
+- Home screen with featured and recently updated anime
+- Anime detail screen with descriptions, ratings, genres, and episodes
+- Favorites and Continue Watching style library screens
+- Settings screen with common playback and UI preferences
 - Media3 ExoPlayer-ready player screen
-- Source-provider contract and mock source implementation
-- Mock torrent provider interface
-- Room database scaffolding for favorites, watch history, downloads, and playback positions
-- Multi-package app structure for clean project organization
-- Gradle Kotlin DSL project setup
+- Mock anime repository and mock source provider
+- Room database scaffolding for favorites, history, downloads, and positions
+- Clean package architecture for future expansion
 
-### Planned / intentionally deferred
-- Full Arabic RTL localization
+### Planned and intentionally deferred
+- Full Arabic localization and RTL testing
 - Real metadata provider integration
-- Authentic source integrations with configuration and API credential handling
-- Subtitle import and rendering system
-- Download manager and offline playback implementation
-- Torrent support for authorized content only
-- Advanced translation architecture with tested providers
-- Production analytics and crash reporting
-- Large-scale CI/CD and signing configuration
+- Authorized source integration with credential handling
+- Subtitle import/rendering system
+- Offline downloads and playback management
+- Torrent support for legally distributable content only
+- Translation subsystem with secure provider configuration
+- Production-grade CI/CD and signing flows
 
-## Tech Stack
+## Technology Stack
+
 - Kotlin
 - Jetpack Compose
 - Material 3
 - Android Media3 ExoPlayer
-- Room database
+- Room Database
 - Kotlin Coroutines + Flow
 - Retrofit + OkHttp
 - MVVM + Repository architecture
 - Gradle Kotlin DSL
 
+## Architecture
+
+The app is organized around a modular, maintainable structure:
+
+```text
+app/
+├─ src/
+│  ├─ main/
+│  │  ├─ java/com/animerift/app/
+│  │  │  ├─ data/
+│  │  │  ├─ database/
+│  │  │  ├─ domain/
+│  │  │  ├─ downloads/
+│  │  │  ├─ player/
+│  │  │  ├─ settings/
+│  │  │  ├─ sources/
+│  │  │  ├─ torrent/
+│  │  │  └─ ui/
+│  │  │     ├─ navigation/
+│  │  │     ├─ screens/
+│  │  │     └─ theme/
+```
+
 ## Project Structure
 
-```
-app/
-  src/main/java/com/animerift/app/
-    data/
-    database/
-    domain/
-    downloads/
-    player/
-    settings/
-    sources/
-    torrent/
-    ui/
-      navigation/
-      screens/
-      theme/
+```text
+AnimeRiftg/
+├─ app/
+│  ├─ build.gradle.kts
+│  ├─ proguard-rules.pro
+│  └─ src/
+├─ build.gradle.kts
+├─ settings.gradle.kts
+├─ gradle.properties
+├─ README.md
+├─ LICENSE
+└─ .gitignore
 ```
 
-## Build Requirements
+## Prerequisites
+
 - Android Studio Ladybug or newer recommended
 - JDK 17
 - Android SDK 34
 - Gradle 8.7+
 
-## Setup
+## Quick Start
 
-1. Clone the repository:
+### 1) Clone the project
 
 ```bash
 git clone https://github.com/Moustafa-devloper/AnimeRiftg.git
 cd AnimeRiftg
 ```
 
-2. Open the project in Android Studio.
+### 2) Open in Android Studio
 
-3. Let Gradle sync and install the required Android SDK components.
+Open the repository in Android Studio and let Gradle sync the project.
 
-4. Ensure the Android SDK path is configured correctly in Android Studio.
+### 3) Run the app
+
+Choose a connected device or emulator, then run:
+
+```bash
+./gradlew assembleDebug
+```
+
+Or build from Android Studio directly.
 
 ## Build Commands
 
 ### Debug build
+
 ```bash
 ./gradlew assembleDebug
 ```
 
 ### Release build
+
 ```bash
 ./gradlew assembleRelease
 ```
 
 ### Run unit tests
+
 ```bash
 ./gradlew test
 ```
 
 ### Run instrumentation tests
+
 ```bash
 ./gradlew connectedAndroidTest
 ```
 
-### Clean build
+### Clean project
+
 ```bash
 ./gradlew clean build
 ```
 
-## Local Configuration and Secrets
+## Local Configuration and Security
 
-This project intentionally avoids committing API keys, source credentials, or private tokens. Any real metadata provider or source integration should store credentials in local app configuration or user-managed secure storage rather than in committed source code.
+This project does not include committed API keys, secrets, or private credentials.
 
-## Source and Media Policy
+Any real source or metadata provider integration should keep credentials in local configuration files or secure device storage instead of checked-in code.
 
-- The app architecture supports authorized sources and official APIs.
-- No unauthorized streaming sites or copyrighted media are bundled in this project.
-- Torrent and source integrations are designed to be optional and modular.
-- Any real deployment should only use legally authorized content and properly licensed data sources.
+## Content and Source Policy
 
-## Application Architecture
+- Official and authorized APIs should be preferred.
+- No unauthorized copyrighted content is bundled in the repository.
+- Torrent support is kept modular and optional.
+- The source framework is designed to allow legal, configurable integrations only.
 
-The project follows a modularized MVVM + Repository style:
+## MVP Status
 
-- UI layer: Compose screens and navigation
-- Domain layer: business models and repository contracts
-- Data layer: mock repository and future API-backed implementations
-- Database layer: Room entities and DAO access
-- Sources layer: metadata and playback source interfaces
-- Player layer: ExoPlayer-ready architecture
-- Settings layer: preferences and playback-related configuration
-- Torrent layer: optional, modular torrent integration
-
-## Running the App
-
-After opening in Android Studio:
-
-1. Select the `app` module
-2. Choose a connected Android device or emulator
-3. Click Run
-
-The app launches with mock data so the main user flow is functional without a live source configuration.
-
-## Design Notes
-
-The visual direction is intentionally dark and cinematic with purple/blue accents, optimized for anime browsing and media discovery. The UI is designed to be extensible for RTL and LTR locales as the localization work advances.
+This repository is currently in a working MVP foundation stage with a functional app shell and mock-ready architecture. It is not yet a complete production-ready anime platform, but the codebase is structured for rapid extension into a full product.
 
 ## Roadmap
 
-### Near-term
-- Real source-provider implementation
-- App settings persistence
-- Subtitle system design and file support
-- Download manager and offline library
-- Arabic localization + RTL testing
-
-### Medium-term
+### Near-term goals
 - Real metadata provider integration
-- Source configuration import/export
-- More robust player controls and quality selection
-- Background download lifecycle management
+- Authoritative source adapters
+- Player controls and quality switching
+- App settings persistence
+- Arabic + English localization
+- Database and repository tests
 
-### Long-term
+### Medium-term goals
+- Download manager and offline playback
+- Subtitle import and rendering
+- Background download lifecycle handling
+- Local library management refinement
+
+### Long-term goals
 - Optional authorized torrent support
-- Translation subsystem with tested provider adapters
-- Expanded tests for repositories, database logic, and UI flows
+- Translation provider adapters
+- Advanced analytics and monitoring
+- Deployment-ready quality and release flows
+
+## Contributing
+
+Contributions are welcome. Please keep changes focused, testable, and aligned with the project’s maintainable architecture.
+
+Key expectations:
+- no placeholders in completed screens
+- no fake success messages
+- no hardcoded secrets
+- no unnecessary permissions
+- honest status reporting on partial implementations
 
 ## License
 
-This project is licensed under the Boost Software License 1.0. See the LICENSE file for details.
+This project is licensed under the Boost Software License 1.0. See the LICENSE file for more information.
 
-## Contribution
+## Acknowledgments
 
-Contributions are welcome. Please keep changes focused, modular, and testable. Avoid hardcoded secrets, fake success flows, or placeholder screens in completed work.
-
-## Status
-
-This repository currently contains a working MVP foundation and project architecture, but it is not yet a full production-ready anime platform. Real source integrations, downloads, subtitle systems, and localization remain as planned future work.
+This project is built with Android Jetpack, Compose, Room, Media3, and modern Kotlin tooling, and is designed as an open-source foundation for anime platforms that respect legal and technical quality standards.
